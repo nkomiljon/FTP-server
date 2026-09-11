@@ -15,7 +15,7 @@ import { findUser } from "./users.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const CONTROL_PORT = process.env.FTPS_PORT || 21;
+const CONTROL_PORT = process.env.FTPS_PORT || 990;
 // Passiv rejim uchun port oralig'i — Security Group'da shu oraliqni ochish kerak
 const PASV_MIN = 1024;
 const PASV_MAX = 1048;
@@ -45,10 +45,11 @@ if (PUBLIC_IP === "SIZNING_PUBLIC_IP_MANZILINGIZ") {
 }
 
 const ftpServer = new FtpSrv({
-  // "ftp://" + tls konfiguratsiyasi = EXPLICIT FTPS (AUTH TLS orqali).
-  // Bu FileZilla'dagi "Require explicit FTP over TLS" sozlamasiga mos keladi.
-  // ("ftps://" yozilsa, bu IMPLICIT TLS bo'lar edi — boshqa port/rejim talab qiladi)
-  url: `ftp://0.0.0.0:${CONTROL_PORT}`,
+  // "ftps://" = IMPLICIT TLS (TLS handshake darhol ulanishda boshlanadi).
+  // Eslatma: ftp-srv kutubxonasidagi "explicit" (AUTH TLS) rejimi TLS
+  // handshake'da xatolik beradi (kutubxonaning ma'lum kamchiligi),
+  // shuning uchun ishonchli ishlaydigan IMPLICIT rejim tanlandi.
+  url: `ftps://0.0.0.0:${CONTROL_PORT}`,
   pasv_url: PUBLIC_IP,
   pasv_min: PASV_MIN,
   pasv_max: PASV_MAX,
