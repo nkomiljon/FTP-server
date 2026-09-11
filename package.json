@@ -12,7 +12,8 @@
   "keywords": [],
   "type": "module",
   "dependencies": {
-    "bcryptjs": "^3.0.3",
-    "ssh2": "^1.17.0"
+    "bcryptjs": "^2.4.3",
+    "ftp-srv": "^4.6.3",
+    "ssh2": "^1.15.0"
   }
 }
