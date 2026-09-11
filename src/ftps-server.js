@@ -23,7 +23,7 @@ const PASV_MAX = 1048;
 // Serverning tashqi (public) IP manzili — passiv rejimda mijozga
 // qaysi manzilga ulanishni aytish uchun MAJBURIY. O'zingizning
 // EC2 Public IP (yoki Elastic IP) manzilingizni shu yerga yozing.
-const PUBLIC_IP = process.env.PUBLIC_IP || "SIZNING_PUBLIC_IP_MANZILINGIZ";
+const PUBLIC_IP = process.env.PUBLIC_IP || "52.211.226.76";
 
 const TLS_KEY_PATH = path.join(__dirname, "ftps-key.pem");
 const TLS_CERT_PATH = path.join(__dirname, "ftps-cert.pem");
