@@ -17,7 +17,7 @@ const USERS = [
     username: "testuser",
     // bu hash "parol123" so'ziga mos keladi — FAQAT SINOV UCHUN, productionda o'zgartiring!
     passwordHash:
-      "$2a$10$CwTycUXWue0Thq9StjUM0uJ8gJn5cGZfDy2vJ3xJTMYbXOL5vI2Sa",
+      "$2a$10$g9ScrrETTduXX8W2jbIuTuv6jwFxS.TnpvO5lNoMZ3a1gPMALHmS.",
     // Har bir foydalanuvchi faqat o'z papkasiga kira oladi (chroot-simulyatsiya)
     homeDir: path.join(__dirname, "storage", "testuser"),
   },
