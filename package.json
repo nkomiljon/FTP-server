@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "genkey": "ssh-keygen -t rsa -b 4096 -f host.key -N \"\""
+    "start:ftps": "node ftps-server.js",
+    "genkey": "ssh-keygen -t rsa -b 4096 -f host.key -N \"\"",
+    "gencert": "openssl req -x509 -newkey rsa:4096 -keyout ftps-key.pem -out ftps-cert.pem -days 365 -nodes -subj \"/CN=localhost\""
   },
   "keywords": [],
   "type": "module",
