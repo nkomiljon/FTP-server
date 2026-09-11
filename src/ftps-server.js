@@ -45,7 +45,10 @@ if (PUBLIC_IP === "SIZNING_PUBLIC_IP_MANZILINGIZ") {
 }
 
 const ftpServer = new FtpSrv({
-  url: `ftps://0.0.0.0:${CONTROL_PORT}`,
+  // "ftp://" + tls konfiguratsiyasi = EXPLICIT FTPS (AUTH TLS orqali).
+  // Bu FileZilla'dagi "Require explicit FTP over TLS" sozlamasiga mos keladi.
+  // ("ftps://" yozilsa, bu IMPLICIT TLS bo'lar edi — boshqa port/rejim talab qiladi)
+  url: `ftp://0.0.0.0:${CONTROL_PORT}`,
   pasv_url: PUBLIC_IP,
   pasv_min: PASV_MIN,
   pasv_max: PASV_MAX,
