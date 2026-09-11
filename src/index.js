@@ -7,8 +7,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import bcrypt from "bcryptjs";
 import ssh2 from "ssh2";
-const { Server, sftp: SFTP } = ssh2;
-const { OPEN_MODE, STATUS_CODE } = SFTP;
+const { Server, utils } = ssh2;
+const { OPEN_MODE, STATUS_CODE } = utils.sftp;
 
 import { findUser } from "./users.js";
 
