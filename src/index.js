@@ -1,12 +1,20 @@
 // index.js
 // Oddiy, lekin xavfsizlikka e'tibor qaratilgan SFTP server.
 // Kutubxona: ssh2 (https://github.com/mscdex/ssh2)
+
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import bcrypt from "bcryptjs";
-import { Server, sftp as SFTP } from "ssh2";
+import ssh2 from "ssh2";
+const { Server, sftp: SFTP } = ssh2;
 const { OPEN_MODE, STATUS_CODE } = SFTP;
+
 import { findUser } from "./users.js";
+
+// ES modullarda __dirname mavjud emas, shuning uchun o'zimiz hosil qilamiz
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const HOST_KEY_PATH = path.join(__dirname, "host.key");
 const PORT = process.env.SFTP_PORT || 2222;
