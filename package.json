@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "start:ftps": "node src/ftps-server.js",
+    "start:ftp": "node src/ftp-server.js",
     "genkey": "ssh-keygen -t rsa -b 4096 -f host.key -N \"\"",
     "gencert": "openssl req -x509 -newkey rsa:4096 -keyout ftps-key.pem -out ftps-cert.pem -days 365 -nodes -subj \"/CN=localhost\""
   },
